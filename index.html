@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'none'; base-uri 'none'; form-action 'none'">
 <title>2026 ODI | Men in Blue</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Dancing+Script:wght@700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -37,12 +36,12 @@ h2 .cur{font-size:1.2em;text-transform:none}
 .card .n{font-size:clamp(2.5rem,7vw,4rem);font-weight:900;color:var(--ye)}
 .card p{color:var(--dim);font-size:.85rem;margin-top:.4rem}
 .match{border-left:4px solid var(--ye);padding:1rem 0 1rem 1.5rem;margin-bottom:2.5rem;max-width:900px}
-.match h3{font-size:1.4rem;font-weight:900;text-transform:uppercase}
+.match h3{font-size:clamp(1rem,5vw,1.4rem);font-weight:900;text-transform:uppercase;overflow-wrap:anywhere}
 .match .res{color:var(--ye);font-weight:700;margin:.4rem 0 1rem}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:600px){.row{grid-template-columns:1fr}}
 .row h4{font-size:.7rem;letter-spacing:.2em;color:var(--dim);margin-bottom:.4rem}
-.row p{line-height:1.7;font-size:.9rem}
+.row p{overflow-wrap:anywhere;line-height:1.7;font-size:.9rem}
 .up{border-color:var(--wh)}
 .tl{border-left:2px solid var(--ye);margin-left:.5rem;max-width:760px}
 .tl div{padding:0 0 2rem 1.8rem;position:relative}
@@ -50,36 +49,15 @@ h2 .cur{font-size:1.2em;text-transform:none}
 .tl b{color:var(--ye)}
 .rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
 .rv.in{opacity:1;transform:none}
-.slot:focus-visible{outline:3px solid var(--ye);outline-offset:-3px}
-.slot{position:relative;overflow:hidden;cursor:pointer;background:#111}
-.slot:before{content:attr(data-l);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:clamp(3rem,12vw,8rem);color:#2b2500;z-index:1;pointer-events:none}
-.slot:after{content:"+ ADD PHOTO";position:absolute;top:1rem;right:1rem;z-index:3;background:var(--ye);color:var(--bk);font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.3rem .6rem}
-.slot.has:before,.slot.art:before{display:none}.slot.has:after{content:"CHANGE"}
-.im{position:absolute;inset:-10%;background-image:var(--img,repeating-linear-gradient(135deg,#111 0 18px,#1a1600 18px 36px));background-size:cover;background-position:center;will-change:transform}
-.ph figcaption,.cap{position:absolute;left:0;right:0;bottom:0;padding:1.4rem;background:linear-gradient(transparent,#000);font-weight:700;z-index:2;pointer-events:none}
-.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.pin:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,#000 100%);pointer-events:none;z-index:2}
-.band{padding:0;height:170vh}.band .slot{position:absolute;inset:0}
-.ov{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;opacity:0}
-.ov h2{font-size:clamp(3rem,13vw,9rem);margin:0}.ov h2 .cur{font-size:1em}
-.strips{display:flex;height:70vh;margin:2vh 0 1rem}
-.st{flex:1;background-image:var(--img,repeating-linear-gradient(135deg,#111 0 18px,#1a1600 18px 36px));background-size:600% 100%;background-position:calc(var(--i)*20%) 50%;transform:translateY(100%);opacity:0;transition:transform .9s cubic-bezier(.2,.7,.2,1) calc(var(--i)*.12s),opacity .9s calc(var(--i)*.12s)}
-.st:nth-child(odd){filter:brightness(1.35)}
-.strips.in .st{transform:none;opacity:1}
-.col{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;align-items:start;margin-top:12vh}
-.col .slot{opacity:0;transition:opacity 1s,transform 1s cubic-bezier(.2,.7,.2,1)}
-.col .slot.in{opacity:1;transform:none}
-.arch{grid-column:1/6;aspect-ratio:3/4;border-radius:999px 999px 0 0;transform:translateY(90px)}
-.circ{grid-column:7/12;aspect-ratio:1;border-radius:50%;margin-top:14vh;transform:scale(.55) rotate(-14deg)}
-.diag{grid-column:2/12;aspect-ratio:16/7;clip-path:polygon(0 0,100% 12%,100% 100%,0 88%);transform:translateX(-90px)}
-.circ figcaption{bottom:10%;text-align:center;background:none}.diag figcaption{bottom:10%;background:none}
-.small{display:block;color:var(--ye);font-size:.7rem;letter-spacing:.1em;font-weight:400}
-.stage{padding:0;height:320vh}
-.lay{position:absolute;inset:0;opacity:0}
-.cap{padding:2rem 6vw 6vh;font-size:clamp(1.4rem,4vw,2.6rem);font-weight:900;text-transform:uppercase}
-.cap .cur{font-size:1.3em;display:block}
-@media(max-width:700px){.arch,.circ,.diag{grid-column:1/-1;margin-top:0}.circ{max-width:80vw}.strips{height:50vh}}
-@media(prefers-reduced-motion:reduce){.col .slot,.st{opacity:1!important;transform:none!important;transition:none}}
+.ch{max-width:900px}
+.ch .it{margin-bottom:2rem}
+.ch .t{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-weight:700;margin-bottom:.6rem;text-transform:uppercase;font-size:.85rem}
+.ch .t span:last-child{color:var(--ye)}
+.bar{height:22px;background:#1a1a1a;border:1px solid #2a2a2a}
+.bar i{display:block;height:100%;background:var(--ye);width:0;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.ch .in .bar i{width:var(--w)}
+.ch .it small{display:block;color:var(--dim);margin-top:.5rem;font-size:.75rem}
+@media(prefers-reduced-motion:reduce){.bar i{transition:none}}
 footer{padding:4rem 6vw;border-top:1px solid #2a2a2a;color:var(--dim);font-size:.75rem;text-align:center}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mq div{animation:none}html{scroll-behavior:auto}}
 </style>
@@ -106,6 +84,12 @@ footer{padding:4rem 6vw;border-top:1px solid #2a2a2a;color:var(--dim);font-size:
 </div>
 </section>
 
+<section class="ch">
+<h2 class="rv">The chase <span class="cur">in numbers</span></h2>
+<div class="it rv"><div class="t"><span>1st ODI &middot; chased 296</span><span class="mono">300/2 in 41.4 ov</span></div><div class="bar"><i style="--w:73.9%"></i></div><small>Won by 8 wickets with 50 balls to spare</small></div>
+<div class="it rv"><div class="t"><span>2nd ODI &middot; chased 406</span><span class="mono">406/2 in 43.3 ov</span></div><div class="bar"><i style="--w:100%"></i></div><small>Won by 8 wickets with 39 balls to spare. India's highest ODI chase.</small></div>
+</section>
+
 <section>
 <h2 class="rv">Match <span class="cur">scorecards</span></h2>
 <div class="match rv"><h3>1st ODI &middot; Thiruvananthapuram</h3><div class="res">India won by 8 wickets (50 balls left) &middot; 27 Sep</div>
@@ -115,30 +99,10 @@ footer{padding:4rem 6vw;border-top:1px solid #2a2a2a;color:var(--dim);font-size:
 <div class="match up rv"><h3>3rd ODI &middot; New Chandigarh</h3><div class="res" style="color:#fff">Yet to begin &middot; 3 October, 2:00 PM IST</div><p class="sm">PCA International Cricket Stadium. India go for the 3-0 sweep.</p></div>
 </section>
 
-<section class="band"><div class="pin"><div class="slot" data-l="223*" id="bandslot"><div class="im" id="bandim"></div></div><div class="ov" id="ov"><p class="tag">2nd ODI &middot; Guwahati</p><h2><span class="cur">Gill</span> 223*</h2><p class="sm">Fastest double ton in ODI history</p></div></div></section>
-
-<section>
-<h2 class="rv">Series <span class="cur">in pictures</span></h2>
-<div class="strips slot rvx" data-l="406"><i class="st" style="--i:0"></i><i class="st" style="--i:1"></i><i class="st" style="--i:2"></i><i class="st" style="--i:3"></i><i class="st" style="--i:4"></i><i class="st" style="--i:5"></i></div>
-<p class="sm">India chase down 406 &middot; slice by slice</p>
-<div class="col">
-<figure class="slot ph par arch rvx" data-l="15K"><div class="im"></div><figcaption>Kohli<span class="small">15,000 ODI RUNS</span></figcaption></figure>
-<figure class="slot ph par circ rvx" data-l="12K"><div class="im"></div><figcaption>Rohit<span class="small">12,000 ODI RUNS</span></figcaption></figure>
-<figure class="slot ph par diag rvx" data-l="2-0"><div class="im"></div><figcaption>Series sealed<span class="small">INDIA 2-0 WEST INDIES</span></figcaption></figure>
-</div>
-<input type="file" id="pick" accept="image/*" hidden>
-</section>
-
-<section class="stage" id="stage"><div class="pin">
-<div class="slot lay" data-l="139*"><div class="im"></div><div class="cap">Kohli<span class="cur">the finisher</span></div></div>
-<div class="slot lay" data-l="4/40"><div class="im"></div><div class="cap">Kuldeep<span class="cur">the match-winner</span></div></div>
-<div class="slot lay" data-l="101"><div class="im"></div><div class="cap">Rohit<span class="cur">the opening blitz</span></div></div>
-</div></section>
-
 <section>
 <h2 class="rv">Fan <span class="cur">favourite</span> moments</h2>
 <div class="tl">
-<div class="rv"><b>Kuldeep strikes</b><br>4/40 and Player of the Match turns the opener.</div>
+<div class="rv"><b>Kuldeep returns</b><br>4/40 on his ODI comeback turns the opener.</div>
 <div class="rv"><b>Kohli 15,000</b><br>The king crosses 15,000 ODI runs and stays unbeaten on 139* off 88 balls.</div>
 <div class="rv"><b>Rohit 12,000</b><br>Third Indian ever to get there, with a century.</div>
 <div class="rv"><b>Gill's double ton</b><br>223* off 133 balls as India chase 406, their highest ever ODI chase.</div>
@@ -161,36 +125,7 @@ try{document.getElementById('loc').textContent='Your local time: '+new Date(T).t
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');
 var c=e.target.querySelector('[data-c]');if(c&&!c.done){c.done=1;var t=+c.dataset.c,i=0,st=setInterval(function(){i+=Math.ceil(t/40);if(i>=t){i=t;clearInterval(st)}c.textContent=i},30)}
 io.unobserve(e.target)})},{threshold:.2});
-document.querySelectorAll('.rv,.rvx').forEach(function(e){io.observe(e)});
-var pick=document.getElementById('pick'),cur=null;
-document.querySelectorAll('.slot').forEach(function(e){e.setAttribute('role','button');e.setAttribute('tabindex','0');e.setAttribute('aria-label','Add or change photo: '+(e.getAttribute('data-l')||'image'));function op(){cur=e;pick.click()}e.addEventListener('click',op);e.addEventListener('keydown',function(k){if(k.key==='Enter'||k.key===' '){k.preventDefault();op()}})});
-pick.addEventListener('change',function(){var f=pick.files[0];if(!f||!cur||f.type.indexOf('image/')!==0)return;
-var r=new FileReader();r.onload=function(){cur.style.setProperty('--img','url("'+r.result+'")');cur.classList.add('has')};r.readAsDataURL(f);pick.value=''});
-function svg(w,h,x){return 'url("data:image/svg+xml,'+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 "+w+" "+h+"' preserveAspectRatio='xMidYMid slice'><defs><radialGradient id='g' cx='50%' cy='45%' r='70%'><stop offset='0' stop-color='#3d3200'/><stop offset='1' stop-color='#0a0a0a'/></radialGradient></defs><rect width='"+w+"' height='"+h+"' fill='url(#g)'/>"+x+"</svg>")+'")'}
-function bat(x,y,s,r){return "<g transform='translate("+x+","+y+") scale("+s+") rotate("+(r||0)+")'><circle cy='-170' r='28' fill='#fff'/><path d='M-30 -135H30L40 -20H-40Z M-38 -20L-8 120H-28L-60 -20Z M8 -20L38 120H18L-10 -20Z' fill='#fff'/><path d='M20 -120L58 -80' stroke='#fff' stroke-width='16' stroke-linecap='round'/><rect x='50' y='-150' width='16' height='200' rx='7' fill='#FFD60A' transform='rotate(30 58 -80)'/></g>"}
-function ball(x,y,r){return "<circle cx='"+x+"' cy='"+y+"' r='"+r+"' fill='#FFD60A'/><path d='M"+(x-r*.7)+" "+(y-r*.7)+"Q"+(x+r*.3)+" "+y+" "+(x-r*.7)+" "+(y+r*.7)+"M"+(x+r*.7)+" "+(y-r*.7)+"Q"+(x-r*.3)+" "+y+" "+(x+r*.7)+" "+(y+r*.7)+"' stroke='#0a0a0a' stroke-width='"+r/14+"' fill='none'/>"}
-function stumps(x,y,s){var o="<g transform='translate("+x+","+y+") scale("+s+")' fill='#fff'>";[-40,0,40].forEach(function(d){o+="<rect x='"+(d-6)+"' y='-220' width='12' height='220' rx='5'/>"});return o+"<rect x='-46' y='-232' width='40' height='9' fill='#FFD60A'/><rect x='6' y='-232' width='40' height='9' fill='#FFD60A'/></g>"}
-function beams(w,h){var o='';[.15,.4,.6,.85].forEach(function(f){o+="<polygon points='"+(w*f-12)+",0 "+(w*f+12)+",0 "+(w*f+180)+","+h+" "+(w*f-180)+","+h+"' fill='#FFD60A' opacity='.09'/><circle cx='"+w*f+"' cy='20' r='14' fill='#fff'/>"});return o}
-function crowd(w,y){var o='';for(var i=0;i<90;i++)o+="<circle cx='"+(i*w/90+8)+"' cy='"+(y+(i%3)*14)+"' r='5' fill='#FFD60A' opacity='"+(.25+(i%4)*.15)+"'/>";return o}
-var arts=[
-svg(1600,900,beams(1600,900)+"<ellipse cx='800' cy='720' rx='760' ry='150' fill='none' stroke='#FFD60A' stroke-width='4'/><rect x='700' y='650' width='200' height='140' fill='#fff' opacity='.9'/>"+crowd(1600,600)+bat(800,640,1.4,-8)),
-svg(1600,700,"<g fill='#FFD60A'>"+[1,2,3,4,5,6,7,8,9,10,11,12].map(function(i){return "<rect x='"+(i*120+10)+"' y='"+(660-i*42)+"' width='80' height='"+(i*42)+"' opacity='"+(.25+i*.06)+"'/>"}).join('')+"</g><text x='800' y='480' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='520' text-anchor='middle' fill='none' stroke='#fff' stroke-width='6'>406</text>"),
-svg(900,1200,"<circle cx='450' cy='560' r='330' fill='none' stroke='#FFD60A' stroke-width='3' opacity='.5'/><path d='M120 900Q450 200 800 700' stroke='#FFD60A' stroke-width='6' fill='none' stroke-dasharray='4 18'/>"+bat(450,780,2.3,-6)),
-svg(1000,1000,"<g stroke='#fff' stroke-width='5' opacity='.35'><path d='M0 300H400M0 400H330M0 500H420M0 600H360M0 700H400'/></g>"+ball(580,500,200)+"<circle cx='580' cy='500' r='260' fill='none' stroke='#fff' stroke-width='3' opacity='.5'/>"),
-svg(1600,700,"<g opacity='.2'>"+beams(1600,700)+"</g>"+stumps(480,640,2.2)+"<text x='1150' y='470' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='380' text-anchor='middle' fill='#FFD60A'>2-0</text>"),
-svg(1600,900,beams(1600,900)+"<path d='M300 760Q800 -80 1350 330' stroke='#FFD60A' stroke-width='6' fill='none' stroke-dasharray='6 20'/>"+ball(1350,330,46)+crowd(1600,800)+bat(520,820,1.6,-10)),
-svg(1600,900,"<g fill='none' stroke='#FFD60A' opacity='.5'>"+[100,200,300,400,500].map(function(r){return "<circle cx='1000' cy='430' r='"+r+"' stroke-width='3'/>"}).join('')+"</g>"+ball(1000,430,80)+stumps(500,820,2.8)),
-svg(1600,900,"<g stroke='#FFD60A' stroke-width='3' opacity='.3'>"+[0,1,2,3,4,5,6,7,8,9,10,11].map(function(i){var a=i*Math.PI/6;return "<line x1='800' y1='450' x2='"+(800+1000*Math.cos(a))+"' y2='"+(450+1000*Math.sin(a))+"'/>"}).join('')+"</g>"+bat(800,780,2,-4)+"<rect x='770' y='80' width='60' height='300' rx='26' fill='#fff' transform='rotate(35 800 230)'/>")
-];
-document.querySelectorAll('.slot').forEach(function(e,i){if(arts[i]){e.style.setProperty('--img',arts[i]);e.classList.add('art')}});
-var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,par_=document.querySelectorAll('.par .im'),band=document.querySelector('.band'),ov=document.getElementById('ov'),bim=document.getElementById('bandim'),stage=document.getElementById('stage'),lays=stage.querySelectorAll('.lay');
-function cl(x){return Math.max(0,Math.min(1,x))}
-function fx(){var h=innerHeight;
-if(!rm)par_.forEach(function(im){var b=im.parentNode.getBoundingClientRect();if(b.bottom<0||b.top>h)return;var p=(b.top+b.height/2)/h-.5;im.style.transform='translateY('+(p*-70)+'px) scale('+(1.08+Math.abs(p)*.1)+')'});
-var b=band.getBoundingClientRect(),p=cl(-b.top/(b.height-h));ov.style.opacity=Math.sin(Math.PI*p);if(!rm){bim.style.transform='scale('+(1+p*.3)+')';ov.style.transform='scale('+(.85+p*.3)+')'}
-b=stage.getBoundingClientRect();p=cl(-b.top/(b.height-h));var t=p*3;
-lays.forEach(function(l,i){var o=cl(1.5-Math.abs(t-(i+.5))*1.5);if(i==0&&t<.5)o=1;if(i==2&&t>2.5)o=1;l.style.opacity=o;l.style.pointerEvents=o>.5?'auto':'none';if(!rm)l.firstElementChild.style.transform='scale('+(1.05+p*.15)+')'})}
-addEventListener('scroll',fx,{passive:true});fx();
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 var bg=document.getElementById('bg');
 addEventListener('scroll',function(){bg.style.transform='translateY('+scrollY*.3+'px) scale('+(1+scrollY/3000)+')'},{passive:true});
 })();
